@@ -1,53 +1,66 @@
-import OpenAI from "openai";
-import dotenv from "dotenv";
+function extractJSON(text) {
+  const start = text.indexOf("{");
+  const end = text.lastIndexOf("}");
+  if (start === -1 || end === -1) return null;
+  return text.substring(start, end + 1);
+}
 
-dotenv.config();
+async function callOllama(prompt) {
+  const response = await fetch("http://localhost:11434/api/generate", {
+    method: "POST",
+    headers: { "Content-Type": "application/json" },
+    body: JSON.stringify({
+      model: "phi3",
+      prompt: prompt,
+      stream: false
+    })
+  });
 
-const openai = new OpenAI({
-  apiKey: process.env.OPENAI_API_KEY
-});
+  const data = await response.json();
+  return data.response.trim();
+}
 
 export async function analyzeArticle(article) {
-  const prompt = `
-You are a financial news analysis system.
+  const basePrompt = `
+Return ONLY valid JSON.
+No explanations.
+No markdown.
+No extra text.
 
-Task:
-Analyze the given news article and return ONLY valid JSON.
+If NOT stock related:
+{ "is_stock_related": false }
 
-Steps:
-1. Check if the news is related to stocks, companies, markets, or business.
-2. If NOT stock-related, return:
-   { "is_stock_related": false }
-
-3. If stock-related:
-   - Identify the main company
-   - Determine sentiment: Positive, Negative, or Neutral
-   - Determine market impact: Bullish, Bearish, or Neutral
-   - Generate a 2–3 line business-focused summary
-
-Rules:
-- Output MUST be strict JSON
-- No explanations
-- No markdown
-- No extra text
-- Use exact key names
+If stock related:
+{
+  "is_stock_related": true,
+  "company": "Company name",
+  "sentiment": "Positive | Negative | Neutral",
+  "impact": "Bullish | Bearish | Neutral",
+  "summary": "2–3 line business summary"
+}
 
 Article:
 Title: ${article.title}
 Description: ${article.description}
 `;
 
-  const response = await openai.chat.completions.create({
-    model: "gpt-4o-mini",
-    messages: [{ role: "user", content: prompt }],
-    temperature: 0
-  });
+  // Try twice
+  for (let attempt = 1; attempt <= 2; attempt++) {
+    const raw = await callOllama(
+      attempt === 1
+        ? basePrompt
+        : basePrompt + "\nIMPORTANT: Respond with COMPLETE valid JSON only."
+    );
 
-  const raw = response.choices[0].message.content;
+    const jsonText = extractJSON(raw);
+    if (!jsonText) continue;
 
-  try {
-    return JSON.parse(raw);
-  } catch {
-    return null;
+    try {
+      return JSON.parse(jsonText);
+    } catch {
+      console.log(`❌ Invalid JSON attempt ${attempt}`);
+    }
   }
+
+  return null;
 }
