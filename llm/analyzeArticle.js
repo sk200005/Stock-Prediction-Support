@@ -1,3 +1,8 @@
+function limitWords(text, maxWords) {
+  if (!text) return "";
+  return text.split(/\s+/).slice(0, maxWords).join(" ");
+}
+
 function extractJSON(text) {
   const start = text.indexOf("{");
   const end = text.lastIndexOf("}");
@@ -21,7 +26,9 @@ async function callOllama(prompt) {
 }
 
 export async function analyzeArticle(article) {
-  const basePrompt = `
+  const description = limitWords(article.description, 300);
+
+  const prompt = `
 Return ONLY valid JSON.
 No explanations.
 No markdown.
@@ -41,15 +48,14 @@ If stock related:
 
 Article:
 Title: ${article.title}
-Description: ${article.description}
+Description: ${description}
 `;
 
-  // Try twice
   for (let attempt = 1; attempt <= 2; attempt++) {
     const raw = await callOllama(
       attempt === 1
-        ? basePrompt
-        : basePrompt + "\nIMPORTANT: Respond with COMPLETE valid JSON only."
+        ? prompt
+        : prompt + "\nIMPORTANT: Return COMPLETE valid JSON only."
     );
 
     const jsonText = extractJSON(raw);
