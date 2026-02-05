@@ -29,10 +29,18 @@ export async function analyzeArticle(article) {
   const description = limitWords(article.description, 300);
 
   const prompt = `
-Return ONLY valid JSON.
-No explanations.
-No markdown.
-No extra text.
+You are a financial news analysis system.
+
+STRICT RULES (VERY IMPORTANT):
+- If the headline contains words like:
+  "Reduce", "Sell", "Cut", "Downgrade" → impact MUST be "Bearish"
+- If the headline contains words like:
+  "Buy", "Add", "Accumulate" → impact MUST be "Bullish"
+- If the headline contains words like:
+  "Hold", "Neutral" → impact MUST be "Neutral"
+
+Task:
+Analyze the given news article and return ONLY valid JSON.
 
 If NOT stock related:
 { "is_stock_related": false }
@@ -43,13 +51,19 @@ If stock related:
   "company": "Company name",
   "sentiment": "Positive | Negative | Neutral",
   "impact": "Bullish | Bearish | Neutral",
-  "summary": "2–3 line business summary"
+  "summary": "3-4 line descriptive business summary"
 }
+
+IMPORTANT:
+- Follow the STRICT RULES above even if the tone sounds positive
+- Do NOT explain your reasoning
+- Do NOT add extra text
 
 Article:
 Title: ${article.title}
 Description: ${description}
 `;
+
 
   for (let attempt = 1; attempt <= 2; attempt++) {
     const raw = await callOllama(

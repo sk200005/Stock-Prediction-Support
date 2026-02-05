@@ -1,23 +1,23 @@
 import feedparser
 import json
 
-ARTICLES_PER_SOURCE = 10
+ARTICLES_PER_SOURCE = {
+    "Economic Times": 14,
+    "Moneycontrol": 15
+}
 
 RSS_FEEDS = {
-    "Livemint": [
-        "https://www.livemint.com/rss/companies",
-        "https://www.livemint.com/rss/industry",
-        "https://www.livemint.com/rss/markets"
-    ],
+
     
+    "Economic Times": [
+        "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
+        "https://economictimes.indiatimes.com/markets/stocks/rssfeeds/2146842.cms"
+    ],
+
     "Moneycontrol": [
         "https://www.moneycontrol.com/rss/latestnews.xml",
         "https://www.moneycontrol.com/rss/marketreports.xml",
         "https://www.moneycontrol.com/rss/stockmarkets.xml"
-    ],
-    "Economic Times": [
-        "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
-        "https://economictimes.indiatimes.com/markets/stocks/rssfeeds/2146842.cms"
     ]
     
 }
@@ -26,15 +26,16 @@ articles = []
 
 for source, urls in RSS_FEEDS.items():
     count = 0
+    source_limit = ARTICLES_PER_SOURCE.get(source, 0)
 
     for url in urls:
-        if count >= ARTICLES_PER_SOURCE:
+        if count >= source_limit:
             break
 
         feed = feedparser.parse(url)
 
         for entry in feed.entries:
-            if count >= ARTICLES_PER_SOURCE:
+            if count >= source_limit:
                 break
 
             articles.append({
