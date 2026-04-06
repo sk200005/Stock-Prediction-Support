@@ -1,194 +1,550 @@
-[
-  {
-    "title": "Buy HDFC Bank; target of Rs 1,850: ICICI Securities",
-    "description": "<img align=\" left\" alt=\"Buy HDFC Bank; target of Rs 1,850: ICICI Securities\" border=\"0\" height=\"75\" hspace=\"5\" src=\"https://www.moneycontrol.com/news_image_files/2024/200x200/B/Buy-378x213_200.jpg\" title=\"Buy HDFC Bank; target of Rs 1,850: ICICI Securities\" width=\"75\" /> ICICI Securities is bullish on HDFC Bank has recommended buy rating on the stock with a target price of Rs 1,850 in its research report dated April 21, 2024.",
-    "link": "https://www.moneycontrol.com/news/recommendations/buy-hdfc-bank-targetrs-1850-icici-securities_17531671.html",
-    "published_at": "Tue, 23 Apr 2024 13:41:02 +0530",
-    "source": "Moneycontrol",
-    "analysis": {
-      "is_stock_related": true,
-      "company": "HDFC Bank",
-      "sentiment": "Positive",
-      "impact": "Bullish",
-      "summary": "ICICI Securities has issued a buy rating for HDFC Bank with an optimistic target price of Rs 1,850."
+{
+  "articles": [
+    {
+      "title": "Equirus appoints Aletheia Capital's Chief Economist Jim Walker as its Global Economic Advisor",
+      "description": "Equirus Securities has appointed Dr. Jim Walker as Global Economic Advisor, strengthening its partnership with Aletheia Capital. The move enhances macro research capabilities, offering institutional clients deeper insights into global cycles, capital flows, and geopolitical trends impacting investment strategies worldwide.",
+      "link": "https://economictimes.indiatimes.com/markets/stocks/news/equirus-appoints-aletheia-capitals-chief-economist-jim-walker-as-its-global-economic-advisor/articleshow/130063479.cms",
+      "published_at": "Mon, 06 Apr 2026 19:42:56 +0530",
+      "source": "Economic Times",
+      "feed_url": "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
+      "analysis": {
+        "company": "Global Economic Advisor Equirus Securities",
+        "sentiment": "negative",
+        "impact": "Bearish",
+        "signal_score": -3,
+        "confidence": 0.9309,
+        "summary": "Equirus Securities has appointed Dr. Jim Walker as Global Economic Advisor, strengthening its partnership with Aletheia Capital. The move enhances macro research capabilities, offering institutional clients deeper insights into global cycles, capital flows, and geopolitical trends impacting investment strategies worldwide.",
+        "summary_source": "fallback"
+      }
+    },
+    {
+      "title": "India's NSE to launch Platts‑based crude futures in tie-up with S&amp;P Global Energy",
+      "description": "India's National Stock Exchange ​will launch exchange-traded ​derivatives based on Platts ​oil price benchmarks through a collaboration with S&amp;P Global Energy, the bourse said on ‌Monday.",
+      "link": "https://economictimes.indiatimes.com/markets/stocks/news/indias-nse-to-launch-plattsbased-crude-futures-in-tie-up-with-sp-global-energy/articleshow/130063183.cms",
+      "published_at": "Mon, 06 Apr 2026 19:30:02 +0530",
+      "source": "Economic Times",
+      "feed_url": "https://economictimes.indiatimes.com/markets/stocks/rssfeeds/2146842.cms",
+      "analysis": {
+        "company": "Global Energy India's",
+        "sentiment": "negative",
+        "impact": "Bearish",
+        "signal_score": -3,
+        "confidence": 0.5013,
+        "summary": "India's National Stock Exchange ​will launch exchange-traded ​derivatives based on Platts ​oil price benchmarks through a collaboration with S&amp;P Global Energy, the bourse said on ‌Monday.",
+        "summary_source": "fallback"
+      }
+    },
+    {
+      "title": "BlackRock files for Nasdaq-100 fund, expanding competition with Invesco",
+      "description": "BlackRock is set to shake up the financial landscape with its new exchange-traded fund designed to mirror the Nasdaq-100 index. This initiative presents a bold challenge to the established Invesco QQQ Trust ETF. Introducing the iShares Nasdaq-100 ETF, investors will now have an additional opportunity to tap into the thriving non-financial giants of the Nasdaq.",
+      "link": "https://economictimes.indiatimes.com/markets/us-stocks/news/blackrock-files-for-nasdaq-100-fund-expanding-competition-with-invesco/articleshow/130063287.cms",
+      "published_at": "Mon, 06 Apr 2026 19:34:59 +0530",
+      "source": "Economic Times",
+      "feed_url": "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
+      "analysis": {
+        "company": "Nasdaq-100",
+        "sentiment": "negative",
+        "impact": "Bearish",
+        "signal_score": -3,
+        "confidence": 0.7537,
+        "summary": "BlackRock is set to shake up the financial landscape with its new exchange-traded fund designed to mirror the Nasdaq-100 index. This initiative presents a bold challenge to the established Invesco QQQ Trust ETF. Introducing the iShares Nasdaq-100 ETF, investors will",
+        "summary_source": "fallback"
+      }
+    },
+    {
+      "title": "Consumer companies witness demand growth in March quarter, but West Asia conflict looms large",
+      "description": "Home-grown player Dabur pointed that the strong domestic performance offset international challenges",
+      "link": "https://www.thehindubusinessline.com/companies/consumer-companies-witness-demand-growth-in-march-quarter-but-west-asia-conflict-impact-looms-large/article70830741.ece",
+      "published_at": "Mon, 06 Apr 2026 20:20:38 +0530",
+      "source": "The Hindu BusinessLine",
+      "feed_url": "https://www.thehindubusinessline.com/companies/?service=rss",
+      "analysis": {
+        "company": "Home",
+        "sentiment": "negative",
+        "impact": "Bearish",
+        "signal_score": -3,
+        "confidence": 0.9466,
+        "summary": "Home-grown player Dabur pointed that the strong domestic performance offset international challenges",
+        "summary_source": "fallback"
+      }
+    },
+    {
+      "title": "NSE to launch Brent Crude futures based on Platts benchmark",
+      "description": "The move is expected to deepen India’s energy derivatives ecosystem and align it with globally recognised pricing standards",
+      "link": "https://www.thehindubusinessline.com/markets/commodities/nse-to-launch-brent-crude-futures-based-on-platts-benchmark/article70830723.ece",
+      "published_at": "Mon, 06 Apr 2026 20:05:55 +0530",
+      "source": "The Hindu BusinessLine",
+      "feed_url": "https://www.thehindubusinessline.com/markets/?service=rss",
+      "analysis": {
+        "company": "Brent Crude",
+        "sentiment": "negative",
+        "impact": "Bearish",
+        "signal_score": -3,
+        "confidence": 0.8866,
+        "summary": "The move is expected to deepen India’s energy derivatives ecosystem and align it with globally recognised pricing standards",
+        "summary_source": "fallback"
+      }
+    },
+    {
+      "title": "Insurance firms raise stakes in 10 mid-cap stocks in Q3FY26",
+      "description": "Insurance companies increased stakes in several NSE midcap stocks during the December 2025 quarter, signaling rising confidence. Stocks like Voltas, One97 Communications, and Dabur India saw notable gains, reflecting insurers’ strategic shift toward equities for improved returns and long-term growth opportunities.",
+      "link": "https://economictimes.indiatimes.com/markets/stocks/news/insurance-firms-raise-stakes-in-10-mid-cap-stocks-in-q3fy26/slideshow/130064037.cms",
+      "published_at": "Mon, 06 Apr 2026 19:50:57 +0530",
+      "source": "Economic Times",
+      "feed_url": "https://economictimes.indiatimes.com/markets/stocks/rssfeeds/2146842.cms",
+      "analysis": {
+        "company": "Q3FY26 Insurance",
+        "sentiment": "negative",
+        "impact": "Bearish",
+        "signal_score": -3,
+        "confidence": 0.952,
+        "summary": "Insurance companies increased stakes in several NSE midcap stocks during the December 2025 quarter, signaling rising confidence. Stocks like Voltas, One97 Communications, and Dabur India saw notable gains, reflecting insurers’ strategic shift toward equities for improved returns and long-term growth",
+        "summary_source": "fallback"
+      }
+    },
+    {
+      "title": "US service sector cools in March; price paid measure highest in 3.5 years",
+      "description": "U.S. services sector growth slowed in March, while prices paid by businesses for inputs climbed to near a 3-1/2-year high, an early sign that the prolonged war with Iran was boosting inflation pressures.",
+      "link": "https://economictimes.indiatimes.com/markets/us-stocks/news/us-service-sector-cools-in-march-price-paid-measure-highest-in-3-5-years/articleshow/130064058.cms",
+      "published_at": "Mon, 06 Apr 2026 20:13:24 +0530",
+      "source": "Economic Times",
+      "feed_url": "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
+      "analysis": {
+        "company": "Unknown",
+        "sentiment": "negative",
+        "impact": "Bearish",
+        "signal_score": -3,
+        "confidence": 0.5575,
+        "summary": "U.S. services sector growth slowed in March, while prices paid by businesses for inputs climbed to near a 3-1/2-year high, an early sign that the prolonged war with Iran was boosting inflation pressures.",
+        "summary_source": "fallback"
+      }
+    },
+    {
+      "title": "Barings' private credit fund limits withdrawals after redemption requests surge",
+      "description": "Barings has taken a measured approach by limiting investor withdrawals from its private credit fund, allowing only 5% redemptions despite requests for 11.3% in the initial quarter. This decision is designed to protect the interests of long-term shareholders by managing liquidity requirements while fostering a sustainable investment environment for all stakeholders.",
+      "link": "https://economictimes.indiatimes.com/markets/us-stocks/news/barings-private-credit-fund-limits-withdrawals-after-redemption-requests-surge/articleshow/130063176.cms",
+      "published_at": "Mon, 06 Apr 2026 19:30:43 +0530",
+      "source": "Economic Times",
+      "feed_url": "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
+      "analysis": {
+        "company": "Barings",
+        "sentiment": "positive",
+        "impact": "Bullish",
+        "signal_score": 3,
+        "confidence": 0.4942,
+        "summary": "Barings has taken a measured approach by limiting investor withdrawals from its private credit fund, allowing only 5% redemptions despite requests for 11.3% in the initial quarter. This decision is designed to protect the interests of long-term shareholders by managing",
+        "summary_source": "fallback"
+      }
+    },
+    {
+      "title": "Gainers &amp; Losers: Trent, RIL &amp; DMart among 8 big movers on Monday",
+      "description": "Trent, RIL, DMart, Senco Gold and other top movers drove D-Street action on Monday as Nifty rose 255 points and Sensex gained 787 points amid strong quarterly updates and market-wide buying.",
+      "link": "https://economictimes.indiatimes.com/markets/stocks/news/gainers-amp-losers-trent-ril-amp-dmart-among-8-big-movers-on-monday/slideshow/130059851.cms",
+      "published_at": "Mon, 06 Apr 2026 17:06:44 +0530",
+      "source": "Economic Times",
+      "feed_url": "https://economictimes.indiatimes.com/markets/stocks/rssfeeds/2146842.cms",
+      "analysis": {
+        "company": "RIL &amp",
+        "sentiment": "negative",
+        "impact": "Bearish",
+        "signal_score": -3,
+        "confidence": 0.9362,
+        "summary": "Trent, RIL, DMart, Senco Gold and other top movers drove D-Street action on Monday as Nifty rose 255 points and Sensex gained 787 points amid strong quarterly updates and market-wide buying.",
+        "summary_source": "fallback"
+      }
+    },
+    {
+      "title": "US Stocks today: S&amp;P 500, Nasdaq open higher as investors weigh Mideast resolution hopes",
+      "description": "The ​S&amp;P 500 ​and the Nasdaq ​opened higher on Monday after the indexes marked ‌their ⁠biggest ⁠weekly jump in ​four months in the last ​session, while investors assessed prospects of an ​end to ⁠the Middle ‌East ​conflict.",
+      "link": "https://economictimes.indiatimes.com/markets/us-stocks/news/us-stocks-today-sp-500-nasdaq-open-higher-as-investors-weigh-mideast-resolution-hopes/articleshow/130062847.cms",
+      "published_at": "Mon, 06 Apr 2026 19:13:59 +0530",
+      "source": "Economic Times",
+      "feed_url": "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
+      "analysis": {
+        "company": "Nasdaq",
+        "sentiment": "negative",
+        "impact": "Bearish",
+        "signal_score": -3,
+        "confidence": 0.9359,
+        "summary": "The ​S&amp;P 500 ​and the Nasdaq ​opened higher on Monday after the indexes marked ‌their ⁠biggest ⁠weekly jump in ​four months in the last ​session, while investors assessed prospects of an ​end to ⁠the Middle ‌East ​conflict.",
+        "summary_source": "fallback"
+      }
+    },
+    {
+      "title": "RPSG Ventures among 6 stocks that hit 52-week high; rally up to 72% in a month",
+      "description": "",
+      "link": "https://economictimes.indiatimes.com/markets/stocks/news/rpsg-ventures-among-6-stocks-that-hit-52-week-high-rally-up-to-72-in-a-month/slideshow/130059739.cms",
+      "published_at": "Mon, 06 Apr 2026 16:57:33 +0530",
+      "source": "Economic Times",
+      "feed_url": "https://economictimes.indiatimes.com/markets/stocks/rssfeeds/2146842.cms",
+      "analysis": {
+        "company": "RPSG Ventures",
+        "sentiment": "negative",
+        "impact": "Bearish",
+        "signal_score": -3,
+        "confidence": 0.9445,
+        "summary": "RPSG Ventures among 6 stocks that hit 52-week high; rally up to 72% in a month",
+        "summary_source": "fallback"
+      }
+    },
+    {
+      "title": "Quote of the day by Jeremy Grantham: \"Every bubble ends with the same words: 'This time is different.\"",
+      "description": "Financial bubbles—from 17th-century tulips to tech and housing markets—reflect recurring investor psychology: optimism, greed, and the belief that “this time is different.” Despite innovation, overvaluation, herd behaviour, and FOMO often trigger crashes. Understanding cycles, questioning extreme valuations, and sticking to fundamentals are key for disciplined investing.",
+      "link": "https://economictimes.indiatimes.com/markets/us-stocks/news/quote-of-the-day-by-jeremy-grantham-every-bubble-ends-with-the-same-words-this-time-is-different-/articleshow/130058136.cms",
+      "published_at": "Mon, 06 Apr 2026 18:00:00 +0530",
+      "source": "Economic Times",
+      "feed_url": "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
+      "analysis": {
+        "company": "herd behaviour",
+        "sentiment": "positive",
+        "impact": "Bullish",
+        "signal_score": 3,
+        "confidence": 0.8988,
+        "summary": "Financial bubbles—from 17th-century tulips to tech and housing markets—reflect recurring investor psychology: optimism, greed, and the belief that “this time is different.” Despite innovation, overvaluation, herd behaviour, and FOMO often trigger crashes. Understanding cycles, questioning extreme valuations, and sticking to",
+        "summary_source": "fallback"
+      }
+    },
+    {
+      "title": "West Asia Conflict: Indian refiners to delay maintenance shutdowns",
+      "description": "However, Nayara Energy will go for refinery maintenance shutdown from April 9-10 for around 35 days.",
+      "link": "https://www.thehindubusinessline.com/economy/west-asia-conflict-indian-refiners-to-delay-maintenance-shutdowns/article70830901.ece",
+      "published_at": "Mon, 06 Apr 2026 20:11:18 +0530",
+      "source": "The Hindu BusinessLine",
+      "feed_url": "https://www.thehindubusinessline.com/companies/?service=rss",
+      "analysis": {
+        "company": "Nayara Energy",
+        "sentiment": "neutral",
+        "impact": "Neutral",
+        "signal_score": 0,
+        "confidence": 0.9147,
+        "summary": "However, Nayara Energy will go for refinery maintenance shutdown from April 9-10 for around 35 days.",
+        "summary_source": "fallback"
+      }
+    },
+    {
+      "title": "Gold price swings spur advance buying; Tanishq enters gemstones to boost demand",
+      "description": "After an unprecedented surge in gold prices over the past year, the jewellery retailer is continuing to see shifting buying patterns, with customers advancing purchases amid concerns of further price hikes",
+      "link": "https://www.thehindubusinessline.com/markets/gold/gold-price-swings-spur-advance-buying-tanishq-enters-gemstones-to-boost-demand/article70830691.ece",
+      "published_at": "Mon, 06 Apr 2026 20:04:14 +0530",
+      "source": "The Hindu BusinessLine",
+      "feed_url": "https://www.thehindubusinessline.com/markets/?service=rss",
+      "analysis": {
+        "company": "Unknown",
+        "sentiment": "negative",
+        "impact": "Bearish",
+        "signal_score": -3,
+        "confidence": 0.9268,
+        "summary": "After an unprecedented surge in gold prices over the past year, the jewellery retailer is continuing to see shifting buying patterns, with customers advancing purchases amid concerns of further price hikes",
+        "summary_source": "fallback"
+      }
+    },
+    {
+      "title": "Amazon bets big on AmazonNow quick commerce, shuts Fresh in top cities",
+      "description": "AmazonNow, currently live in six cities including Bengaluru, Mumbai, Delhi, Hyderabad, Chennai, and Pune, is adding roughly two dark stores every day, taking its total count to approximately 450",
+      "link": "https://www.thehindubusinessline.com/companies/amazon-bets-big-on-amazonnow-quick-commerce-shuts-fresh-in-top-cities/article70830674.ece",
+      "published_at": "Mon, 06 Apr 2026 20:08:15 +0530",
+      "source": "The Hindu BusinessLine",
+      "feed_url": "https://www.thehindubusinessline.com/companies/?service=rss",
+      "analysis": {
+        "company": "Amazon",
+        "sentiment": "positive",
+        "impact": "Bullish",
+        "signal_score": 3,
+        "confidence": 0.5846,
+        "summary": "AmazonNow, currently live in six cities including Bengaluru, Mumbai, Delhi, Hyderabad, Chennai, and Pune, is adding roughly two dark stores every day, taking its total count to approximately 450",
+        "summary_source": "fallback"
+      }
+    },
+    {
+      "title": "US stocks: Goldman Sachs' private credit fund defies sector-wide spike in redemptions",
+      "description": "Goldman Sachs' private credit fund disclosed on Monday that investors sought ​to repurchase just under 5% of shares in the first quarter, setting it apart from the rest of the industry that is struggling with a surge in redemptions.",
+      "link": "https://economictimes.indiatimes.com/markets/us-stocks/news/us-stocks-goldman-sachs-private-credit-fund-defies-sector-wide-spike-in-redemptions/articleshow/130064365.cms",
+      "published_at": "Mon, 06 Apr 2026 20:26:05 +0530",
+      "source": "Economic Times",
+      "feed_url": "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
+      "analysis": {
+        "company": "Goldman Sachs'",
+        "sentiment": "neutral",
+        "impact": "Neutral",
+        "signal_score": 0,
+        "confidence": 0.9573,
+        "summary": "Goldman Sachs' private credit fund disclosed on Monday that investors sought ​to repurchase just under 5% of shares in the first quarter, setting it apart from the rest of the industry that is struggling with a surge in redemptions.",
+        "summary_source": "fallback"
+      }
+    },
+    {
+      "title": "Soleno shares jump 33% as Neurocrine expands into metabolic diseases with $2.9 billion buyout",
+      "description": "Neurocrine Biosciences will acquire rare-disease drugmaker Soleno Therapeutics for $2.9 ​billion in cash, the companies said on Monday, marking the neuroscience-focused drugmaker's expansion into metabolic disorders.",
+      "link": "https://economictimes.indiatimes.com/markets/us-stocks/news/soleno-shares-jump-33-as-neurocrine-expands-into-metabolic-diseases-with-2-9-billion-buyout/articleshow/130064256.cms",
+      "published_at": "Mon, 06 Apr 2026 20:19:46 +0530",
+      "source": "Economic Times",
+      "feed_url": "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
+      "analysis": {
+        "company": "Soleno",
+        "sentiment": "negative",
+        "impact": "Bearish",
+        "signal_score": -3,
+        "confidence": 0.9292,
+        "summary": "Neurocrine Biosciences will acquire rare-disease drugmaker Soleno Therapeutics for $2.9 ​billion in cash, the companies said on Monday, marking the neuroscience-focused drugmaker's expansion into metabolic disorders.",
+        "summary_source": "fallback"
+      }
+    },
+    {
+      "title": "Wells Fargo no longer expects Fed rate cuts in 2026 as Iran war drags on",
+      "description": "Wells ​Fargo Investment Institute said on Monday it ​no longer expects the U.S. Federal Reserve to cut interest rates in 2026, citing uncertainty around inflation and heightened geopolitical ‌risks tied ⁠to ⁠the Middle East war.",
+      "link": "https://economictimes.indiatimes.com/markets/us-stocks/news/wells-fargo-no-longer-expects-fed-rate-cuts-in-2026-as-iran-war-drags-on/articleshow/130064197.cms",
+      "published_at": "Mon, 06 Apr 2026 20:15:35 +0530",
+      "source": "Economic Times",
+      "feed_url": "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
+      "analysis": {
+        "company": "Wells Fargo",
+        "sentiment": "neutral",
+        "impact": "Neutral",
+        "signal_score": 0,
+        "confidence": 0.9325,
+        "summary": "Wells ​Fargo Investment Institute said on Monday it ​no longer expects the U.S. Federal Reserve to cut interest rates in 2026, citing uncertainty around inflation and heightened geopolitical ‌risks tied ⁠to ⁠the Middle East war.",
+        "summary_source": "fallback"
+      }
+    },
+    {
+      "title": "Prices of essential food items are not unusually volatile, says Govt",
+      "description": "Government directs States to aggressively target hoarding and black marketing",
+      "link": "https://www.thehindubusinessline.com/economy/agri-business/prices-of-essential-food-items-are-not-unusually-volatile-says-govt/article70830581.ece",
+      "published_at": "Mon, 06 Apr 2026 19:31:40 +0530",
+      "source": "The Hindu BusinessLine",
+      "feed_url": "https://www.thehindubusinessline.com/markets/?service=rss",
+      "analysis": {
+        "company": "Govt Government",
+        "sentiment": "positive",
+        "impact": "Bullish",
+        "signal_score": 3,
+        "confidence": 0.8462,
+        "summary": "Government directs States to aggressively target hoarding and black marketing",
+        "summary_source": "fallback"
+      }
+    },
+    {
+      "title": "Equirus Securities ties up with Aletheia Capital, ropes in Jim Walker as Global Economic Advisor",
+      "description": "Tie-up expected to strengthen Equirus’ global macro research capabilities for institutional clients",
+      "link": "https://www.thehindubusinessline.com/markets/equirus-securities-ties-up-with-aletheia-capital-ropes-in-jim-walker-as-global-economic-advisor/article70830281.ece",
+      "published_at": "Mon, 06 Apr 2026 19:15:36 +0530",
+      "source": "The Hindu BusinessLine",
+      "feed_url": "https://www.thehindubusinessline.com/markets/?service=rss",
+      "analysis": {
+        "company": "Unknown",
+        "sentiment": "negative",
+        "impact": "Bearish",
+        "signal_score": -3,
+        "confidence": 0.9409,
+        "summary": "Tie-up expected to strengthen Equirus’ global macro research capabilities for institutional clients",
+        "summary_source": "fallback"
+      }
+    },
+    {
+      "title": "Success of out-of-court settlement under IBC depends on framework, implementation",
+      "description": "The amendment is aimed at easing burden on an already stretched tribunal, bring Indian insolvency regime on a par with global framework",
+      "link": "https://www.thehindubusinessline.com/companies/success-of-out-of-court-settlement-under-ibc-depends-on-framework-implementation/article70830340.ece",
+      "published_at": "Mon, 06 Apr 2026 19:10:56 +0530",
+      "source": "The Hindu BusinessLine",
+      "feed_url": "https://www.thehindubusinessline.com/companies/?service=rss",
+      "analysis": {
+        "company": "IBC",
+        "sentiment": "negative",
+        "impact": "Bearish",
+        "signal_score": -3,
+        "confidence": 0.9169,
+        "summary": "The amendment is aimed at easing burden on an already stretched tribunal, bring Indian insolvency regime on a par with global framework",
+        "summary_source": "fallback"
+      }
+    },
+    {
+      "title": "West Asia crisis hits activated carbon exports as costs surge amid shipping woes",
+      "description": "Shippers face challenges due to the unavailability of shipping services to certain sectors, higher ocean freight and war risk surcharge",
+      "link": "https://www.thehindubusinessline.com/markets/commodities/west-asia-crisis-hits-activated-carbon-exports-as-costs-surge-amid-shipping-woes/article70829874.ece",
+      "published_at": "Mon, 06 Apr 2026 19:07:16 +0530",
+      "source": "The Hindu BusinessLine",
+      "feed_url": "https://www.thehindubusinessline.com/markets/?service=rss",
+      "analysis": {
+        "company": "Unknown",
+        "sentiment": "neutral",
+        "impact": "Neutral",
+        "signal_score": 0,
+        "confidence": 0.9624,
+        "summary": "Shippers face challenges due to the unavailability of shipping services to certain sectors, higher ocean freight and war risk surcharge",
+        "summary_source": "fallback"
+      }
+    },
+    {
+      "title": "CuraTeQ Biologics gets ‘positive’ results in phase study of Omalizumab",
+      "description": "Results demonstrated precise equivalence, with tight confidence intervals well within the predefined margins",
+      "link": "https://www.thehindubusinessline.com/companies/curateq-biologics-gets-positive-results-in-phase-study-of-omalizumab/article70830282.ece",
+      "published_at": "Mon, 06 Apr 2026 19:04:01 +0530",
+      "source": "The Hindu BusinessLine",
+      "feed_url": "https://www.thehindubusinessline.com/companies/?service=rss",
+      "analysis": {
+        "company": "Unknown",
+        "sentiment": "negative",
+        "impact": "Bearish",
+        "signal_score": -3,
+        "confidence": 0.9547,
+        "summary": "Results demonstrated precise equivalence, with tight confidence intervals well within the predefined margins",
+        "summary_source": "fallback"
+      }
     }
-  },
-  {
-    "title": "Buy Tejas Networks; target of Rs 1100: Emkay Global Financial",
-    "description": "<img align=\" left\" alt=\"Buy Tejas Networks; target of Rs 1100: Emkay Global Financial\" border=\"0\" height=\"75\" hspace=\"5\" src=\"https://www.moneycontrol.com/news_image_files/2024/200x200/B/Buy_1280x720_1_200.jpg\" title=\"Buy Tejas Networks; target of Rs 1100: Emkay Global Financial\" width=\"75\" /> Emkay Global Financial is bullish on Tejas Networks has recommended buy rating on the stock with a target price of Rs 1100 in its research report dated April 23, 2024.",
-    "link": "https://www.moneycontrol.com/news/recommendations/buy-tejas-networks-targetrs-1100-emkay-global-financial_17531621.html",
-    "published_at": "Tue, 23 Apr 2024 13:36:47 +0530",
-    "source": "Moneycontrol",
-    "analysis": {
-      "is_stock_related": true,
-      "company": "Tejas Networks",
-      "sentiment": "Positive",
-      "impact": "Bullish",
-      "summary": "Emkay Global Financial has a positive outlook on Tejas Networks with an 'Accumulate' rating and sets the target price at Rs 1100, indicating bullish sentiment."
-    }
-  },
-  {
-    "title": "Buy Bajaj Finance; target of Rs 9000: Emkay Global Financial",
-    "description": "<img align=\" left\" alt=\"Buy Bajaj Finance; target of Rs 9000: Emkay Global Financial\" border=\"0\" height=\"75\" hspace=\"5\" src=\"https://www.moneycontrol.com/news_image_files/2024/200x200/B/Buy_1280x720_5_200.jpg\" title=\"Buy Bajaj Finance; target of Rs 9000: Emkay Global Financial\" width=\"75\" /> Emkay Global Financial is bullish on Bajaj Finance has recommended buy rating on the stock with a target price of Rs 9000 in its research report dated April 23, 2024.",
-    "link": "https://www.moneycontrol.com/news/recommendations/buy-bajaj-finance-targetrs-9000-emkay-global-financial_17531641.html",
-    "published_at": "Tue, 23 Apr 2024 13:36:44 +0530",
-    "source": "Moneycontrol",
-    "analysis": {
-      "is_stock_related": true,
-      "company": "Bajaj Finance",
-      "sentiment": "Positive",
-      "impact": "Bullish",
-      "summary": "Emkay Global Financial has a buy rating on Bajaj Finance with an anticipated target price of Rs 9000."
-    }
-  },
-  {
-    "title": "Reduce Persistent Systems; target of Rs 3700: Emkay Global Financial",
-    "description": "<img align=\" left\" alt=\"Reduce Persistent Systems; target of Rs 3700: Emkay Global Financial\" border=\"0\" height=\"75\" hspace=\"5\" src=\"https://www.moneycontrol.com/news_image_files/2023/200x200/R/Reduce-2_200.jpg\" title=\"Reduce Persistent Systems; target of Rs 3700: Emkay Global Financial\" width=\"75\" /> Emkay Global Financial recommended reduce rating on Persistent Systems with a target price of Rs 3700 in its research report dated April 22, 2024.",
-    "link": "https://www.moneycontrol.com/news/recommendations/reduce-persistent-systems-targetrs-3700-emkay-global-financial_17531581.html",
-    "published_at": "Tue, 23 Apr 2024 13:26:31 +0530",
-    "source": "Moneycontrol",
-    "analysis": {
-      "is_stock_related": true,
-      "company": "Persistent Systems",
-      "sentiment": "Negative",
-      "impact": "Bearish",
-      "summary": "Emkay Global Financial suggests reducing holdings in Persistent Systems with a target price of Rs 3700."
-    }
-  },
-  {
-    "title": "Reduce Aditya Birla Fashion and Retail; target of Rs 230: Emkay Global Financial",
-    "description": "<img align=\" left\" alt=\"Reduce Aditya Birla Fashion and Retail; target of Rs 230: Emkay Global Financial\" border=\"0\" height=\"75\" hspace=\"5\" src=\"https://www.moneycontrol.com/news_image_files/2024/200x200/r/reduced-378x213_200.jpg\" title=\"Reduce Aditya Birla Fashion and Retail; target of Rs 230: Emkay Global Financial\" width=\"75\" /> Emkay Global Financial recommended reduce rating on Aditya Birla Fashion and Retail with a target price of Rs 230 in its research report dated April 23, 2024.",
-    "link": "https://www.moneycontrol.com/news/recommendations/reduce-aditya-birla-fashionretail-targetrs-230-emkay-global-financial_17531571.html",
-    "published_at": "Tue, 23 Apr 2024 13:22:33 +0530",
-    "source": "Moneycontrol",
-    "analysis": {
-      "is_stock_related": true,
-      "company": "Aditya Birla Fashion and Retail",
-      "sentiment": "Negative",
-      "impact": "Bearish",
-      "summary": "Emkay Global Financial suggests reducing exposure to Aditya Birla's fashion retail, targeting Rs 230."
-    }
-  },
-  {
-    "title": "Reduce Wipro; target of Rs 410: ICICI Securities",
-    "description": "<img align=\" left\" alt=\"Reduce Wipro; target of Rs 410: ICICI Securities\" border=\"0\" height=\"75\" hspace=\"5\" src=\"https://www.moneycontrol.com/news_image_files/2023/200x200/R/Reduce-5_200.jpg\" title=\"Reduce Wipro; target of Rs 410: ICICI Securities\" width=\"75\" /> ICICI Securities is bullish on Wipro has recommended buy rating on the stock with a target price of Rs 410 in its research report dated April 21, 2024.",
-    "link": "https://www.moneycontrol.com/news/recommendations/reduce-wipro-targetrs-410-icici-securities_17531461.html",
-    "published_at": "Tue, 23 Apr 2024 12:22:08 +0530",
-    "source": "Moneycontrol",
-    "analysis": {
-      "is_stock_related": true,
-      "company": "Wipro",
-      "sentiment": "Positive",
-      "impact": "Bullish",
-      "summary": "ICICI Securities recommends buying Wipro with a target price of Rs 410."
-    }
-  },
-  {
-    "title": "Buy HDFC Life Insurance Company; target of Rs 739: ICICI Securities",
-    "description": "<img align=\" left\" alt=\"Buy HDFC Life Insurance Company; target of Rs 739: ICICI Securities\" border=\"0\" height=\"75\" hspace=\"5\" src=\"https://www.moneycontrol.com/news_image_files/2024/200x200/B/Buy_1-378x213_200.jpg\" title=\"Buy HDFC Life Insurance Company; target of Rs 739: ICICI Securities\" width=\"75\" /> ICICI Securities is bullish on HDFC Life Insurance Company has recommended buy rating on the stock with a target price of Rs 739 in its research report dated April 21, 2024.",
-    "link": "https://www.moneycontrol.com/news/recommendations/buy-hdfc-life-insurance-company-targetrs-739-icici-securities_17531391.html",
-    "published_at": "Tue, 23 Apr 2024 12:05:52 +0530",
-    "source": "Moneycontrol",
-    "analysis": {
-      "is_stock_related": true,
-      "company": "HDFC Life Insurance Company",
-      "sentiment": "Positive",
-      "impact": "Bullish",
-      "summary": "ICICI Securities recommended buying HDFC Life Insurance stock with a target price of Rs 739."
-    }
-  },
-  {
-    "title": "Buy Patel Engineering; target of Rs 80: ICICI Direct",
-    "description": "<img align=\" left\" alt=\"Buy Patel Engineering; target of Rs 80: ICICI Direct\" border=\"0\" height=\"75\" hspace=\"5\" src=\"https://www.moneycontrol.com/news_image_files/2024/200x200/B/Buy_1280x720_3_200.jpg\" title=\"Buy Patel Engineering; target of Rs 80: ICICI Direct\" width=\"75\" /> ICICI Direct is bullish on Patel Engineering recommended buy rating on the stock with a target price of Rs 80 in its research report dated April 22, 2024.",
-    "link": "https://www.moneycontrol.com/news/recommendations/buy-patel-engineering-targetrs-80-icici-direct_17531401.html",
-    "published_at": "Tue, 23 Apr 2024 12:05:43 +0530",
-    "source": "Moneycontrol",
-    "analysis": {
-      "is_stock_related": true,
-      "company": "Patel Engineering",
-      "sentiment": "Positive",
-      "impact": "Bullish",
-      "summary": "ICICI Direct provides a buy rating with an Rs 80 target price for Patel Engineering."
-    }
-  },
-  {
-    "title": "Accumulate Infosys; target of Rs 1531: KR Choksey",
-    "description": "<img align=\" left\" alt=\"Accumulate Infosys; target of Rs 1531: KR Choksey\" border=\"0\" height=\"75\" hspace=\"5\" src=\"https://www.moneycontrol.com/news_image_files/2023/200x200/A/Accumulate_1280x720_3_200.jpg\" title=\"Accumulate Infosys; target of Rs 1531: KR Choksey\" width=\"75\" /> KR Choksey recommended Accumulate rating on Infosys with a target price of Rs 1531 in its research report dated April 22, 2024.",
-    "link": "https://www.moneycontrol.com/news/recommendations/accumulate-infosys-targetrs-1531-kr-choksey_17531411.html",
-    "published_at": "Tue, 23 Apr 2024 12:05:06 +0530",
-    "source": "Moneycontrol",
-    "analysis": {
-      "is_stock_related": true,
-      "company": "Infosys",
-      "sentiment": "Positive",
-      "impact": "Bullish",
-      "summary": "KR Choksey advises to accumulate Infosys stock with a target price of Rs 1531 based on their research."
-    }
-  },
-  {
-    "title": "Buy Jindal Drilling and Industries; target of Rs 960: Anand Rathi",
-    "description": "<img align=\" left\" alt=\"Buy Jindal Drilling and Industries; target of Rs 960: Anand Rathi\" border=\"0\" height=\"75\" hspace=\"5\" src=\"https://www.moneycontrol.com/news_image_files/2024/200x200/B/Buy-378x213_200.jpg\" title=\"Buy Jindal Drilling and Industries; target of Rs 960: Anand Rathi\" width=\"75\" /> Anand Rathi is bullish on Jindal Drilling and Industries has recommended buy rating on the stock with a target price of Rs 960 in its research report dated April 22, 2024.",
-    "link": "https://www.moneycontrol.com/news/recommendations/buy-jindal-drillingindustries-targetrs-960-anand-rathi_17531431.html",
-    "published_at": "Tue, 23 Apr 2024 12:04:28 +0530",
-    "source": "Moneycontrol",
-    "analysis": {
-      "is_stock_related": true,
-      "company": "Jindal Drilling and Industries",
-      "sentiment": "Positive",
-      "impact": "Bullish",
-      "summary": "Anand Rathi has issued a buy rating with an estimated target price of Rs 960 for Jindal Drilling and Industries, indicating confidence in the stock's potential growth."
-    }
-  },
-  {
-    "title": "Marico shares in focus on acquiring wellness brand for Rs 375 crore. Here’s everything you need to know",
-    "description": "FMCG major Marico is set to acquire a 60% stake in plant-based nutrition brand Cosmix Wellness for approximately Rs 375 crore. This strategic move strengthens Marico's digital-first portfolio and positions it in the rapidly growing wellness segment. The acquisition aims to accelerate Cosmix's growth and expand into adjacent wellness categories.",
-    "link": "https://economictimes.indiatimes.com/markets/stocks/news/marico-shares-in-focus-on-acquiring-wellness-brand-for-rs-375-crore-heres-everything-you-need-to-know/articleshow/127922632.cms",
-    "published_at": "Thu, 05 Feb 2026 08:38:38 +0530",
-    "source": "Economic Times",
-    "analysis": {
-      "is_stock_related": true,
-      "company": "Marico",
-      "sentiment": "Positive",
-      "impact": "Bullish",
-      "summary": "Acquisition of Cosmix Wellness indicates Marico's strategic shift towards wellness segment growth and expansion."
-    }
-  },
-  {
-    "title": "Anthropic AI plug-ins creating chaos in IT stocks. Too early for you to plug out?",
-    "description": "Indian IT stocks are experiencing significant selling pressure following the launch of AI-powered workplace tools, leading to a market value evaporation of billions. While some analysts label this a \"SaaSpocalypse,\" others argue the market is overreacting, with AI potentially driving transformation rather than outright decline for the sector.",
-    "link": "https://economictimes.indiatimes.com/markets/stocks/news/anthropic-ai-plug-ins-creating-chaos-in-it-stocks-too-early-for-you-to-plug-out/articleshow/127922204.cms",
-    "published_at": "Thu, 05 Feb 2026 08:35:33 +0530",
-    "source": "Economic Times",
-    "analysis": {
-      "is_stock_related": true,
-      "company": "Indian IT Sector",
-      "sentiment": "Negative | Positive (Ambiguous)",
-      "impact": "Bearish",
-      "summary": "Post-AI tool launch Indian IT stocks face selling pressure and market value decline. Analyst perspectives vary on long-term impact, with some fearing a sector collapse while others see potential for positive transformation."
-    }
-  },
-  {
-    "title": "India bonds rally may taper ahead of RBI debt purchase, rate decision",
-    "description": "Today marks a pivotal moment for Indian bond investors as they set their sights on a crucial yield target ahead of a central bank's impending bond acquisition. The air is thick with expectation for tomorrow's monetary policy update, where many foresee proactive measures aimed at enhancing liquidity.",
-    "link": "https://economictimes.indiatimes.com/markets/bonds/india-bonds-rally-may-taper-ahead-of-rbi-debt-purchase-rate-decision/articleshow/127922453.cms",
-    "published_at": "Thu, 05 Feb 2026 08:29:05 +0530",
-    "source": "Economic Times",
-    "analysis": {
-      "is_stock_related": false
-    }
-  },
-  {
-    "title": "Tata Motors PV Share Price Live Updates: Tata Motors PV's beta indicates strong price fluctuations",
-    "description": "",
-    "link": "https://economictimes.indiatimes.com/markets/stocks/stock-liveblog/tata-motors-pv-stock-price-live-updates-05-feb-2026/liveblog/127922190.cms",
-    "published_at": "Thu, 05 Feb 2026 08:08:45 +0530",
-    "source": "Economic Times",
-    "analysis": {
-      "is_stock_related": true,
-      "company": "Tata Motors",
-      "sentiment": "Neutral",
-      "impact": "Bearish",
-      "summary": "Headlines suggest strong price fluctuations due to beta. Market sentiment is cautious with a downtrend implied."
+  ],
+  "aggregates": {
+    "company_mentions": [
+      {
+        "company": "Global Economic Advisor Equirus Securities",
+        "mentions": 1
+      },
+      {
+        "company": "Global Energy India's",
+        "mentions": 1
+      },
+      {
+        "company": "Nasdaq-100",
+        "mentions": 1
+      },
+      {
+        "company": "Home",
+        "mentions": 1
+      },
+      {
+        "company": "Brent Crude",
+        "mentions": 1
+      },
+      {
+        "company": "Q3FY26 Insurance",
+        "mentions": 1
+      },
+      {
+        "company": "Barings",
+        "mentions": 1
+      },
+      {
+        "company": "RIL &amp",
+        "mentions": 1
+      },
+      {
+        "company": "Nasdaq",
+        "mentions": 1
+      },
+      {
+        "company": "RPSG Ventures",
+        "mentions": 1
+      },
+      {
+        "company": "herd behaviour",
+        "mentions": 1
+      },
+      {
+        "company": "Nayara Energy",
+        "mentions": 1
+      },
+      {
+        "company": "Amazon",
+        "mentions": 1
+      },
+      {
+        "company": "Goldman Sachs'",
+        "mentions": 1
+      },
+      {
+        "company": "Soleno",
+        "mentions": 1
+      },
+      {
+        "company": "Wells Fargo",
+        "mentions": 1
+      },
+      {
+        "company": "Govt Government",
+        "mentions": 1
+      },
+      {
+        "company": "IBC",
+        "mentions": 1
+      }
+    ],
+    "company_signal_strength": [
+      {
+        "company": "Barings",
+        "signal_strength": 3
+      },
+      {
+        "company": "herd behaviour",
+        "signal_strength": 3
+      },
+      {
+        "company": "Amazon",
+        "signal_strength": 3
+      },
+      {
+        "company": "Govt Government",
+        "signal_strength": 3
+      },
+      {
+        "company": "Nayara Energy",
+        "signal_strength": 0
+      },
+      {
+        "company": "Goldman Sachs'",
+        "signal_strength": 0
+      },
+      {
+        "company": "Wells Fargo",
+        "signal_strength": 0
+      },
+      {
+        "company": "Global Economic Advisor Equirus Securities",
+        "signal_strength": -3
+      },
+      {
+        "company": "Global Energy India's",
+        "signal_strength": -3
+      },
+      {
+        "company": "Nasdaq-100",
+        "signal_strength": -3
+      },
+      {
+        "company": "Home",
+        "signal_strength": -3
+      },
+      {
+        "company": "Brent Crude",
+        "signal_strength": -3
+      },
+      {
+        "company": "Q3FY26 Insurance",
+        "signal_strength": -3
+      },
+      {
+        "company": "RIL &amp",
+        "signal_strength": -3
+      },
+      {
+        "company": "Nasdaq",
+        "signal_strength": -3
+      },
+      {
+        "company": "RPSG Ventures",
+        "signal_strength": -3
+      },
+      {
+        "company": "Soleno",
+        "signal_strength": -3
+      },
+      {
+        "company": "IBC",
+        "signal_strength": -3
+      }
+    ],
+    "impact_distribution": {
+      "bullish": 4,
+      "bearish": 15,
+      "neutral": 4
     }
   }
-]
+}
