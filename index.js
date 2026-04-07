@@ -1,17 +1,63 @@
 import fs from "fs";
+import dotenv from "dotenv";
 import { spawnSync } from "child_process";
 import { MongoClient } from "mongodb";
+
+import { runFinnhubNewsIngestion } from "./ingestion/finnhub_news.js";
+import { runStockPriceFetcher } from "./ingestion/stock_prices.js";
+
+dotenv.config();
 
 const RAW_NEWS_PATH = "./data/raw_news.json";
 const OUTPUT_PATH = "./output/processedArticles.json";
 const PYTHON_ANALYZER_PATH = "./analysis_pipeline.py";
-const PYTHON_EXECUTABLE = process.env.PYTHON_ANALYZER_BIN || "python3";
-const ARTICLES_PER_SOURCE = 10;
 const MONGODB_URI = process.env.MONGODB_URI || "mongodb://127.0.0.1:27017";
 const MONGODB_DATABASE = process.env.MONGODB_DATABASE || "market_signals";
 const MONGODB_ARTICLES_COLLECTION = process.env.MONGODB_ARTICLES_COLLECTION || "articles";
 const MONGODB_METADATA_COLLECTION = process.env.MONGODB_METADATA_COLLECTION || "metadata";
-const NEW_ARTICLES_PER_RUN = 5;
+const PYTHON_DEPENDENCY_CHECK = "import torch, transformers, spacy";
+
+function commandExists(command) {
+  const result = spawnSync("which", [command], {
+    encoding: "utf-8",
+  });
+
+  return result.status === 0 && Boolean(result.stdout?.trim());
+}
+
+function pythonHasAnalyzerDependencies(pythonExecutable) {
+  const result = spawnSync(pythonExecutable, ["-c", PYTHON_DEPENDENCY_CHECK], {
+    encoding: "utf-8",
+  });
+
+  return result.status === 0;
+}
+
+function resolvePythonAnalyzerExecutable() {
+  const candidates = [
+    process.env.PYTHON_ANALYZER_BIN,
+    process.env.PROJECT_PYTHON_BIN,
+    "./.venv/bin/python",
+    "./venv/bin/python",
+    "/opt/homebrew/opt/python@3.10/bin/python3.10",
+    "python3",
+    "python",
+  ].filter(Boolean);
+
+  for (const candidate of candidates) {
+    if ((candidate === "python3" || candidate === "python") && !commandExists(candidate)) {
+      continue;
+    }
+
+    if (pythonHasAnalyzerDependencies(candidate)) {
+      return candidate;
+    }
+  }
+
+  return process.env.PYTHON_ANALYZER_BIN || process.env.PROJECT_PYTHON_BIN || "python3";
+}
+
+const PYTHON_EXECUTABLE = resolvePythonAnalyzerExecutable();
 
 function normalizeTitle(title) {
   return (title || "")
@@ -21,100 +67,21 @@ function normalizeTitle(title) {
 }
 
 function getArticleIdentity(article) {
-  const normalizedTitle = normalizeTitle(article.title);
-  const normalizedLink = (article.link || "").trim().toLowerCase();
-  return normalizedLink || normalizedTitle;
-}
-
-function groupBySource(articles) {
-  return articles.reduce((grouped, article) => {
-    const source = article.source || "Unknown";
-    if (!grouped[source]) {
-      grouped[source] = [];
-    }
-    grouped[source].push(article);
-    return grouped;
-  }, {});
-}
-
-function computeAggregates(articles) {
-  const mentionCounts = new Map();
-  const signalStrength = new Map();
-  const impactDistribution = {
-    bullish: 0,
-    bearish: 0,
-    neutral: 0
-  };
-
-  for (const article of articles) {
-    const analysis = article.analysis || {};
-    const company = analysis.company || "Unknown";
-    const impact = String(analysis.impact || "Neutral").toLowerCase();
-    const score = Number(analysis.signal_score || 0);
-
-    if (company && company !== "Unknown") {
-      mentionCounts.set(company, (mentionCounts.get(company) || 0) + 1);
-      signalStrength.set(company, (signalStrength.get(company) || 0) + score);
-    }
-
-    if (Object.prototype.hasOwnProperty.call(impactDistribution, impact)) {
-      impactDistribution[impact] += 1;
-    } else {
-      impactDistribution.neutral += 1;
-    }
+  const normalizedLink = (article.link || article.url || "").trim().toLowerCase();
+  if (normalizedLink) {
+    return normalizedLink;
   }
 
-  return {
-    company_mentions: [...mentionCounts.entries()]
-      .sort((left, right) => right[1] - left[1])
-      .map(([company, mentions]) => ({ company, mentions })),
-    company_signal_strength: [...signalStrength.entries()]
-      .sort((left, right) => right[1] - left[1])
-      .map(([company, signal_strength]) => ({ company, signal_strength })),
-    impact_distribution: impactDistribution
-  };
+  return normalizeTitle(article.title);
 }
 
-function selectArticles(rawArticles) {
-  const groupedArticles = groupBySource(rawArticles);
-  const seenTitles = new Set();
-  const selectedArticles = [];
-
-  const targetSources = [
-    "Moneycontrol",
-    "Economic Times",
-    "Reuters",
-    "Livemint",
-    "Business Standard",
-    "CNBC TV18 India",
-    "Financial Express",
-    "The Hindu BusinessLine",
-    "NSE India"
-  ];
-
-  for (const source of targetSources) {
-    const articles = groupedArticles[source] || [];
-    let count = 0;
-
-    for (const article of articles) {
-      const key = normalizeTitle(article.title);
-      if (seenTitles.has(key)) {
-        continue;
-      }
-
-      seenTitles.add(key);
-      selectedArticles.push(article);
-      count += 1;
-
-      console.log(`Queued [${source}]: ${article.title}`);
-
-      if (count >= ARTICLES_PER_SOURCE) {
-        break;
-      }
-    }
+function loadRawArticles() {
+  if (!fs.existsSync(RAW_NEWS_PATH)) {
+    return [];
   }
 
-  return selectedArticles;
+  const payload = JSON.parse(fs.readFileSync(RAW_NEWS_PATH, "utf-8"));
+  return Array.isArray(payload) ? payload : [];
 }
 
 function loadExistingPayloadFromJson() {
@@ -129,21 +96,20 @@ function loadExistingPayloadFromJson() {
 
   return {
     articles: payload.articles || [],
-    aggregates: payload.aggregates || {}
+    aggregates: payload.aggregates || {},
   };
 }
 
 async function loadExistingArticlesFromMongo() {
   const client = new MongoClient(MONGODB_URI, {
-    serverSelectionTimeoutMS: 3000
+    serverSelectionTimeoutMS: 3000,
   });
 
   try {
     await client.connect();
     const database = client.db(MONGODB_DATABASE);
     const articlesCollection = database.collection(MONGODB_ARTICLES_COLLECTION);
-    const articles = await articlesCollection.find({}, { projection: { _id: 0 } }).toArray();
-    return articles;
+    return await articlesCollection.find({}, { projection: { _id: 0 } }).toArray();
   } finally {
     await client.close();
   }
@@ -158,25 +124,25 @@ async function loadExistingArticles() {
   }
 }
 
+function sortArticlesByPublishedAt(articles) {
+  return [...articles].sort((left, right) => {
+    const leftTime = Date.parse(left.published_at || 0);
+    const rightTime = Date.parse(right.published_at || 0);
+    return (Number.isNaN(rightTime) ? 0 : rightTime) - (Number.isNaN(leftTime) ? 0 : leftTime);
+  });
+}
+
 function filterNewArticles(candidateArticles, existingArticles) {
   const seenIdentities = new Set(existingArticles.map(getArticleIdentity).filter(Boolean));
-  const newArticles = [];
-
-  for (const article of candidateArticles) {
+  return sortArticlesByPublishedAt(candidateArticles).filter((article) => {
     const identity = getArticleIdentity(article);
     if (!identity || seenIdentities.has(identity)) {
-      continue;
+      return false;
     }
 
     seenIdentities.add(identity);
-    newArticles.push(article);
-
-    if (newArticles.length >= NEW_ARTICLES_PER_RUN) {
-      break;
-    }
-  }
-
-  return newArticles;
+    return true;
+  });
 }
 
 function runPythonAnalysis(articles) {
@@ -184,15 +150,11 @@ function runPythonAnalysis(articles) {
   let result;
 
   try {
-    result = spawnSync(
-      PYTHON_EXECUTABLE,
-      [PYTHON_ANALYZER_PATH],
-      {
-        input: payload,
-        encoding: "utf-8",
-        maxBuffer: 20 * 1024 * 1024
-      }
-    );
+    result = spawnSync(PYTHON_EXECUTABLE, [PYTHON_ANALYZER_PATH], {
+      input: payload,
+      encoding: "utf-8",
+      maxBuffer: 20 * 1024 * 1024,
+    });
   } catch (error) {
     if (error.code === "EPIPE") {
       throw new Error(
@@ -216,7 +178,11 @@ function runPythonAnalysis(articles) {
   }
 
   if (result.status !== 0) {
-    throw new Error(result.stdout || "Python analysis pipeline failed.");
+    throw new Error(
+      result.stdout
+      || result.stderr
+      || `Python analysis pipeline failed with interpreter: ${PYTHON_EXECUTABLE}`
+    );
   }
 
   const parsed = JSON.parse(result.stdout);
@@ -231,9 +197,60 @@ function ensureOutputDirectoryExists() {
   fs.mkdirSync("./output", { recursive: true });
 }
 
+function shapeProcessedArticle(article) {
+  const analysis = article.analysis || {};
+  const tickers = Array.isArray(article.tickers)
+    ? article.tickers
+    : Array.isArray(article.companies)
+      ? article.companies
+      : [];
+  const companyTicker = article.company || tickers[0] || analysis.company || "Unknown";
+  const priceData = article.price_data || {
+    current_price: article.current_price ?? null,
+    percent_change: article.price_change_percent ?? null,
+    high: article.high ?? null,
+    low: article.low ?? null,
+  };
+
+  return {
+    ...article,
+    url: article.url || article.link || "",
+    summary: analysis.summary || article.description || "",
+    tickers,
+    companies: tickers,
+    company: companyTicker,
+    sentiment: analysis.sentiment || "neutral",
+    impact: analysis.impact || "Neutral",
+    signal_score: Number(analysis.signal_score || 0),
+    price_change_percent: priceData.percent_change ?? null,
+    current_price: priceData.current_price ?? null,
+    high: priceData.high ?? null,
+    low: priceData.low ?? null,
+    price_data: priceData,
+    analysis,
+  };
+}
+
+function deduplicateArticles(articles) {
+  const seen = new Set();
+  const unique = [];
+
+  for (const article of sortArticlesByPublishedAt(articles)) {
+    const identity = getArticleIdentity(article);
+    if (!identity || seen.has(identity)) {
+      continue;
+    }
+
+    seen.add(identity);
+    unique.push(article);
+  }
+
+  return unique;
+}
+
 async function syncPayloadToMongo(processedPayload) {
   const client = new MongoClient(MONGODB_URI, {
-    serverSelectionTimeoutMS: 3000
+    serverSelectionTimeoutMS: 3000,
   });
 
   try {
@@ -241,15 +258,37 @@ async function syncPayloadToMongo(processedPayload) {
     const database = client.db(MONGODB_DATABASE);
     const articlesCollection = database.collection(MONGODB_ARTICLES_COLLECTION);
     const metadataCollection = database.collection(MONGODB_METADATA_COLLECTION);
-    const incomingArticles = processedPayload.articles || [];
 
-    if (incomingArticles.length) {
-      await articlesCollection.insertMany(incomingArticles);
+    const processedArticles = processedPayload.articles.map(shapeProcessedArticle);
+
+    for (const article of processedArticles) {
+      const identity = getArticleIdentity(article);
+      if (!identity) {
+        continue;
+      }
+
+      await articlesCollection.updateOne(
+        { identity },
+        {
+          $set: {
+            identity,
+            ...article,
+            updated_at: new Date().toISOString(),
+          },
+          $setOnInsert: {
+            created_at: new Date().toISOString(),
+          },
+        },
+        { upsert: true }
+      );
     }
 
-    const allArticles = await articlesCollection.find({}, { projection: { _id: 0 } }).toArray();
+    const allArticles = await articlesCollection
+      .find({}, { projection: { _id: 0, identity: 0 } })
+      .sort({ published_at: -1 })
+      .toArray();
 
-    const aggregates = computeAggregates(allArticles);
+    const aggregates = processedPayload.aggregates || {};
 
     await metadataCollection.updateOne(
       { type: "processed_payload" },
@@ -257,13 +296,13 @@ async function syncPayloadToMongo(processedPayload) {
         $set: {
           type: "processed_payload",
           aggregates,
-          updated_at: new Date().toISOString()
-        }
+          updated_at: new Date().toISOString(),
+        },
       },
       { upsert: true }
     );
 
-    console.log("✅ Synced processed payload to MongoDB");
+    console.log("Synced processed payload to MongoDB");
     return { allArticles, aggregates };
   } finally {
     await client.close();
@@ -271,21 +310,22 @@ async function syncPayloadToMongo(processedPayload) {
 }
 
 async function main() {
-  if (!fs.existsSync(RAW_NEWS_PATH)) {
-    throw new Error("Missing data/raw_news.json. Run RSS ingestion first.");
-  }
+  console.log("Starting Finnhub news ingestion...");
+  await runFinnhubNewsIngestion();
 
-  const rawArticles = JSON.parse(fs.readFileSync(RAW_NEWS_PATH, "utf-8"));
-  const selectedArticles = selectArticles(rawArticles);
+  console.log("Starting stock price enrichment...");
+  await runStockPriceFetcher();
+
+  const rawArticles = loadRawArticles();
   const existingArticles = await loadExistingArticles();
-  const newArticles = filterNewArticles(selectedArticles, existingArticles);
+  const newArticles = filterNewArticles(rawArticles, existingArticles);
 
-  console.log(`Selected ${selectedArticles.length} candidate articles from raw ingestion.`);
+  console.log(`Loaded ${rawArticles.length} articles from raw_news.json.`);
   console.log(`Found ${newArticles.length} new articles to analyze.`);
 
   if (newArticles.length === 0) {
     const existingPayload = loadExistingPayloadFromJson();
-    console.log("No unseen articles found. Skipping analysis.");
+    console.log("No unseen Finnhub articles found. Skipping analysis.");
     return existingPayload;
   }
 
@@ -302,21 +342,21 @@ async function main() {
   } catch (error) {
     console.warn(`MongoDB sync skipped: ${error.message}`);
     const existingPayload = loadExistingPayloadFromJson();
-    allArticles = [...processedPayload.articles, ...(existingPayload.articles || [])];
-    aggregates = computeAggregates(allArticles);
+    const mergedArticles = processedPayload.articles
+      .map(shapeProcessedArticle)
+      .concat(existingPayload.articles || []);
+    allArticles = deduplicateArticles(mergedArticles);
+    aggregates = processedPayload.aggregates || existingPayload.aggregates || {};
   }
 
   const finalPayload = {
     articles: allArticles,
-    aggregates
+    aggregates,
   };
 
-  fs.writeFileSync(
-    OUTPUT_PATH,
-    JSON.stringify(finalPayload, null, 2)
-  );
+  fs.writeFileSync(OUTPUT_PATH, JSON.stringify(finalPayload, null, 2));
 
-  console.log("✅ Market signal analysis completed");
+  console.log("Market signal analysis completed");
   console.log(`Saved results to ${OUTPUT_PATH}`);
   return finalPayload;
 }

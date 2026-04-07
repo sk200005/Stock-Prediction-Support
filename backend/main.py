@@ -11,6 +11,8 @@ from backend.models.stats import (
     PipelineRunResponse,
     StatsResponse,
 )
+from backend.routes.market_insights import router as market_insights_router
+from backend.routes.sentiment_analytics import router as sentiment_analytics_router
 from backend.services.analytics import (
     compute_company_signals,
     compute_impact_distribution,
@@ -35,6 +37,9 @@ app.add_middleware(
     allow_methods=["*"],
     allow_headers=["*"],
 )
+
+app.include_router(market_insights_router)
+app.include_router(sentiment_analytics_router)
 
 
 @app.get("/health")

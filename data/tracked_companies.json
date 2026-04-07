@@ -1,0 +1,36 @@
+{
+  "indian": [
+    "RELIANCE.NS",
+    "TCS.NS",
+    "INFY.NS",
+    "HDFCBANK.NS",
+    "ICICIBANK.NS",
+    "SBIN.NS",
+    "BHARTIARTL.NS",
+    "LT.NS",
+    "ITC.NS",
+    "HINDUNILVR.NS",
+    "AXISBANK.NS",
+    "BAJFINANCE.NS",
+    "KOTAKBANK.NS",
+    "MARUTI.NS",
+    "SUNPHARMA.NS",
+    "TATAMOTORS.NS",
+    "ULTRACEMCO.NS",
+    "ASIANPAINT.NS",
+    "ADANIENT.NS",
+    "WIPRO.NS"
+  ],
+  "foreign": [
+    "AAPL",
+    "MSFT",
+    "TSLA",
+    "NVDA",
+    "AMZN",
+    "GOOGL",
+    "META",
+    "NFLX",
+    "JPM",
+    "WMT"
+  ]
+}

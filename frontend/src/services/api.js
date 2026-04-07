@@ -41,3 +41,15 @@ export async function runPipeline() {
   const response = await apiClient.post("/run-pipeline", {}, { timeout: 120000 });
   return response.data;
 }
+
+
+export async function getMarketInsights() {
+  const response = await apiClient.get("/market-insights", { timeout: 90000 });
+  return response.data;
+}
+
+
+export async function getSentimentAnalytics() {
+  const response = await apiClient.get("/sentiment-analytics", { timeout: 90000 });
+  return response.data;
+}

@@ -39,20 +39,20 @@ def compute_stats(articles: List[dict]) -> Dict[str, int]:
     }
 
 
-def compute_company_signals(articles: List[dict]) -> List[Dict[str, int]]:
-    signal_totals = defaultdict(int)
+def compute_company_signals(articles: List[dict]) -> List[Dict[str, float]]:
+    signal_totals = defaultdict(float)
 
     for article in articles:
         analysis = article.get("analysis", {})
-        company = analysis.get("company", "Unknown")
+        company = article.get("company") or analysis.get("company", "Unknown")
         if not company or company == "Unknown":
             continue
 
-        signal_totals[company] += int(analysis.get("signal_score", 0) or 0)
+        signal_totals[company] += float(analysis.get("signal_score", 0) or 0)
 
     return sorted(
         (
-            {"company": company, "signal_strength": signal_strength}
+            {"company": company, "signal_strength": round(signal_strength, 4)}
             for company, signal_strength in signal_totals.items()
         ),
         key=lambda item: item["signal_strength"],
@@ -64,7 +64,7 @@ def compute_mentions(articles: List[dict]) -> List[Dict[str, int]]:
     mention_counter = Counter()
 
     for article in articles:
-        company = article.get("analysis", {}).get("company", "Unknown")
+        company = article.get("company") or article.get("analysis", {}).get("company", "Unknown")
         if company and company != "Unknown":
             mention_counter[company] += 1
 
@@ -82,4 +82,3 @@ def compute_impact_distribution(articles: List[dict]) -> Dict[str, int]:
         distribution[impact.lower()] += 1
 
     return distribution
-

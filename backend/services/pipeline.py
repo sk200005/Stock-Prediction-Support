@@ -38,10 +38,7 @@ def run_news_pipeline() -> Dict[str, object]:
     environment["PROJECT_PYTHON_BIN"] = project_python
     environment["PYTHON_ANALYZER_BIN"] = environment.get("PYTHON_ANALYZER_BIN") or project_python
 
-    commands = [
-        [project_python, "ingestion/rss_ingestion.py"],
-        ["node", "index.js"],
-    ]
+    commands = [["node", "index.js"]]
 
     logs = []
     for command in commands:

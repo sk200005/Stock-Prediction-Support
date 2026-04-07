@@ -17,39 +17,54 @@ REQUEST_HEADERS = {
 }
 
 RSS_FEEDS = {
-    "Economic Times": [
-        "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
-        "https://economictimes.indiatimes.com/markets/stocks/rssfeeds/2146842.cms",
-    ],
     "Moneycontrol": [
         "https://www.moneycontrol.com/rss/latestnews.xml",
         "https://www.moneycontrol.com/rss/marketreports.xml",
         "https://www.moneycontrol.com/rss/stockmarkets.xml",
     ],
-    "Business Standard": [
-        "https://www.business-standard.com/rss/markets-106.rss",
-        "https://www.business-standard.com/rss/companies-101.rss",
+    "Economic Times": [
+        "https://economictimes.indiatimes.com/markets/rssfeeds/1977021501.cms",
+        "https://economictimes.indiatimes.com/markets/stocks/rssfeeds/2146842.cms",
     ],
-    "CNBC TV18 India": [
-        "https://www.cnbctv18.com/market/rss.xml",
-        "https://www.cnbctv18.com/economy/rss.xml",
+    "Reuters": [
+        "https://feeds.reuters.com/reuters/INbusinessNews",
+        "https://feeds.reuters.com/reuters/INmarketsNews",
     ],
-    "Financial Express": [
-        "https://www.financialexpress.com/market/feed/",
-        "https://www.financialexpress.com/industry/feed/",
+    "Livemint": [
+        "https://www.livemint.com/rss/markets",
+        "https://www.livemint.com/rss/companies",
     ],
-    "The Hindu BusinessLine": [
-        "https://www.thehindubusinessline.com/markets/?service=rss",
-        "https://www.thehindubusinessline.com/companies/?service=rss",
+    "Bloomberg": [
+        "https://feeds.bloomberg.com/markets/news.rss",
     ],
-    "NSE India": [
-        "https://www.nseindia.com/rss-feed",
+    "Yahoo Finance": [
+        "https://finance.yahoo.com/news/rssindex",
+    ],
+    "MarketWatch": [
+        "https://feeds.marketwatch.com/marketwatch/topstories/",
+    ],
+    "Seeking Alpha": [
+        "https://seekingalpha.com/feed.xml",
+    ],
+    "Nasdaq": [
+        "https://www.nasdaq.com/feed/rssoutbound?category=Stocks",
+    ],
+    "CNBC": [
+        "https://www.cnbc.com/id/100003114/device/rss/rss.html",
     ],
 }
 
 WORKING_SOURCES = {
+    "Moneycontrol",
     "Economic Times",
-    "The Hindu BusinessLine",
+    "Reuters",
+    "Livemint",
+    "Bloomberg",
+    "Yahoo Finance",
+    "MarketWatch",
+    "Seeking Alpha",
+    "Nasdaq",
+    "CNBC",
 }
 
 

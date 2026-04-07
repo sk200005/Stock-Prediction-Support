@@ -176,8 +176,8 @@ export default function Dashboard() {
           <p className="text-sm uppercase tracking-[0.35em] text-sky-400">Market Intelligence</p>
           <h1 className="mt-3 text-4xl font-semibold text-white">Financial News Market Signals</h1>
           <p className="mt-3 max-w-2xl text-slate-400">
-            A React dashboard powered by FastAPI, spaCy, and FinBERT to track company mentions,
-            sentiment, and market impact from stock market news.
+            A React dashboard powered by Finnhub, FastAPI, spaCy, and FinBERT to track company
+            mentions, sentiment, price movement, and market impact from stock news.
           </p>
         </div>
 
@@ -255,7 +255,7 @@ export default function Dashboard() {
           <div>
             <h2 className="text-2xl font-semibold text-white">Company News Feed</h2>
             <p className="mt-1 text-sm text-slate-400">
-              Paginated article cards with market signals and summaries.
+              Paginated Finnhub article cards with price-aware market signals and summaries.
             </p>
           </div>
           <div className="rounded-full border border-panelBorder bg-panel px-4 py-2 text-sm text-slate-300">

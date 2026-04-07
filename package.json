@@ -12,6 +12,7 @@
   "type": "module",
   "dependencies": {
     "@google/generative-ai": "^0.24.1",
+    "axios": "^1.14.0",
     "dotenv": "^17.3.1",
     "mongodb": "^6.16.0",
     "openai": "^6.17.0"
